@@ -1,0 +1,29 @@
+variables:
+  NOME_OUTPUT: "riassunto-template-yuugou-shoukan"
+
+stages:
+  - build
+  - deploy
+
+compile:
+  image: 123marvin123/typst
+  stage: build
+  script:
+    # Compile "main.typ" into "main.pdf"
+    - typst compile main.typ $NOME_OUTPUT.pdf --font-path fonts --pdf-standard a-2b
+  artifacts:
+    # Store the PDF(s) as build artifacts so they survive to the next build step (and can be browsed by devs)
+    name: "$CI_COMMIT_REF_NAME"
+    paths:
+      - $NOME_OUTPUT.pdf
+
+pages:
+  stage: deploy
+  script:
+    - mkdir .public
+    - cp -r ./* .public
+    - rm -rf public
+    - mv .public public
+  artifacts:
+    paths:
+      - public
