@@ -2,4 +2,4 @@
 
 #show: style.with()
 
-#include "lezione1/sections/incontri.typ"
+#include "lezione_1/sections/incontri.typ"

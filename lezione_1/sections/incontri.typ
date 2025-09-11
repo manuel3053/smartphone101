@@ -2,6 +2,7 @@
 
 = Smartphone
 
+mi chiamo
 Cosa interessa a noi: \
 *[]* Porta mini jack \
 *[]* Porte ricarica \
@@ -162,6 +163,7 @@ Cosa interessa a noi: \
 *[X]* Lettore impronta digitale \
 *[X]* Ricarica wireless \
 
+metti immagine della chiavettina per aprirli
 #table(
   columns: 1,
   align: (center),
@@ -183,19 +185,37 @@ Cosa interessa a noi: \
 
 = Email e account
 
-l'account è il modo con cui siti e app ci riconoscono, fornendoci e conservando i dati che riguardano solo noi: senza un account sarebbe come fare 
-ordino 2 pizze alle 19:30 a nome Zani Manuel, vado in pizzeria puntuale, e poi non dico niente:
-- oltre a inquietare il pizzaiolo, non riceverò mai la pizza, perché lui non sa che sono Zani Manuel che lo ha chiamata
-  quindi non mi fornirà mai le pizze a me riservate
+// TODO: metti immagine con con "circa uguale" in mezzo, dove da un lato ci sta carta identità + stato e dall'altro account + app
 
-Nel mondo dell'informatica vale la stessa cosa: avete scaricato l'app della banca e volete sapere quanti soldi avete sul conto:
-come può l'app fornirvi le informazioni se non sa nemmeno chi siete?
+// Questa definizione da mettere nel riquadro delle definizioni
+Account: l’insieme delle informazioni (nome, password, ecc.), depositate presso il provider, che identificano l’utente
+Email: La posta elettronica è un sistema di trasmissione di messaggi in formato digitale attraverso internet. 
+Consiste nell’invio di email, ovvero messaggi, da un mittente a uno o più destinatari. 
+Provider: Un provider è, ad esempio, un’azienda che fornisce l’accesso a dei servizi come Internet (Linkem, Iliad, ...), 
+alla posta elettronica (Gmail, OutLook, ...), al cloud (Drive, ...) alla telefonia (Wind, Vodafone, ...)
+
+== Perché serve l'account
+// TODO: Immagine di una pizza per via dell'esemprio
+
+l'account è il modo con cui siti e app ci riconoscono, fornendoci e conservando i dati che riguardano solo noi:
+- Prendo il telefono e chiamo la pizzeria
+- Dico che voglio 2 margherite per le 20:00
+- Il pizzaiolo mi chiede "a che nome?"
+- Io faccio silenzio e metto giù
+- Quando andrò alle 20:00 a prendere le mie pizze, il pizzaiolo non saprà mai che sono quello che ha ordinato quelle pizze, anzi, probabilmente
+  non le ha nemmento fatte visto che non ha saputo per chi fossero
+Al contrario, se avessi detto il mio nome, in questo momento avrei ritirato le mie pizze
+
+Nel mondo dell'informatica vale la stessa cosa: 
+- Scaricate l'app della banca 
+- volete sapere quanti soldi avete sul conto:
+- Quindi aprite l'app e indovinate cosa vi chiederà? I dati del vostro account
+- Se voi non li metterete non potrete mai sapere dall'app quanti soldi avete sul conto, al contrario, inserendoli avrete accesso ai dati del vostro conto
+
+Quindi come con il pizzaiolo, se non date un modo per farvi riconoscere non potete ottenere quello che volete o cercate perché le vostre pizze, come i vostri
+dati devono essere riservati solo per voi
 
 Quindi l'account è come una carta d'identità
-
-Un'account è costituito da due elementi:
-- username: il nome utente può essere del testo oppure nella maggior parte dei casi, l'indirizzo email
-- password: permette di tenere al sicuro i vostri dati, in modo che nessuno possa facilmente rubarvi l'account
 
 Ora riflettete su questo: 
 - voi avete una carta d'identità italiana perché vivete in Italia, così lo stato italiano può riconoscervi
@@ -210,6 +230,7 @@ La stessa cosa vale per app e siti:
 
 Quindi fin qua sembra che le app siano gli "stati" e gli account le carte d'identità
 
+// TODO: metti immagine con account google da cui vanno delle frecce verso youtube, drive, gmail ecc...
 Ricordiamoci che nel mondo digitale è possibile facilitarci la vita: molte app e siti vi permetteno di riciclare account che già avete
 - youtube vi permette di usare un account google
 - TROVA_APP vi permette di usare un account google o facebook
@@ -220,11 +241,10 @@ L'importante è ricordarsi che:
 - un'app o sito deve riconoscerci tramite un account
 - a volte si può evitare di creare l'ennesimo nuovo account e utilizzarne uno già esistente
 
-
 Ora che sappiamo degli elementi fondamentali, vediamo di comprarci un telefono
 
 = Quale scegliere?
-
+// TODO: immagine con da un lato Toyota con [€ - €€€] e dall'altro Audi con [€€€ - €€€]
 Partiamo con una metafora:
 - Toyota produce dalle auto economiche ad auto costose
 - Audi produce solo auto costose
@@ -237,6 +257,7 @@ di qualche incredibile capacità nel produrre sempre auto di alta qualità: è t
 
 Se pago 40.000 € per forza mi ritrovo con un auto molto buona e ovviamente non può competervi un auto da 10.000 €
 
+// TODO: immagine con da un lato Android con [€ - €€€] e dall'altro Apple con [€€€ - €€€]
 La stessa cosa vale per i telefoni e mi riferisco alla differenza tra i smartphone android e gli iphone, quindi per evitare ripetizioni,
 applicate quanto ho detto prima mettendo apple al posto di audi e android al posto di Toyota
 
@@ -245,18 +266,20 @@ di qualche incredibile capacità nel produrre sempre telefoni di alta qualità: 
 
 Detto questo, vi consiglio di rimanere nella seguente fascia di prezzo se non siete utenti con particolari bisogni
 
+Inserire siti che vendono smartphone ricondizionati
+
 ciao
 
 #set align(center)
 #cetz.canvas({
   import cetz.draw: *
   set-style(stroke: (paint: red, thickness: 50pt), content: (frame: "rect", stroke: none, fill: yellow.transparentize(100%),))
-  line((0,0),(4,0), stroke: (paint: red, thickness: 50pt), name: "less")
-  line((4,0),(16,0), stroke: (paint: green, thickness: 50pt), name: "right")
+  line((0,0),(2,0), stroke: (paint: red, thickness: 50pt), name: "less")
+  line((2,0),(16,0), stroke: (paint: green, thickness: 50pt), name: "right")
   line((16,0),(24,0), stroke: (paint: red, thickness: 50pt), name: "more")
 
   content("less.start", [\ 0€], anchor: "north")
-  content("right.start", [\ 100€], anchor: "north")
+  content("right.start", [\ 150€], anchor: "north")
   content("right.end", [\ 500€], anchor: "north")
   content("more.end", [\ ...€], anchor: "north")
   // content((name: "less", anchor: (3,3)), [100€])
@@ -264,16 +287,12 @@ ciao
 })
 #set align(left)
 
+// TODO: metti immagine super carica per inculcare la bellezza dell'usato
 Quindi diciamo che risulta essere quasi sottointeso che vi sconsigli di prendere un iphone ma ricordatevi che tutto questo discorso
 si basa sul fatto che dia per scontato che conosciate al massimo le basi, un utente consapevole è in grado di scegliere il miglior telefono che fa al caso suo,
 quindi non considerate le mie parole come un dogma ma basate sulla supposizione che vi ho detto pocanzi
 
-Sempre su questa base vi avviso che gli iphone moderni sono sprovvisti del vecchio pulsante di cui erano dotati ed ora è stato sostituito da una singola barra digitale:
-- non è super semplice da utilizzare e se avete difficoltà a usare un telefono, vi conviene evitarlo
-- faccio notare che anche telefoni android moderni siano sprovvisti di pulsanti fisici ma sono stati riportati esattamente in forma digitiale, quindi è possibile continuare a cliccare un bottone, 
-  invece di trascinare una barra
-
-ATTENZIONE: questo discorso può variare quando si parla di usato perché permette di trovare offerte di dispositivi di buona qualità a prezzi molto bassi: se per ragioni economiche e/o ecologiche, volete acquistare un dispositivo usato ma non sapete comprenderrne le caratteristiche e capire se il prezzo sia accettabile, chiedete a qualcuno che ne sappia più di voi, che vi aiuti nell'acquisto
+// Metti screen di un telefono android da nuovo e poi da usato recente e la stessa cosa con u iPhone
 
 = Abbiamo comprato il nostro telefono, ora dobbiamo accenderlo
 
@@ -284,3 +303,16 @@ ATTENZIONE: questo discorso può variare quando si parla di usato perché permet
 = Ora dobbiamo capire come muoverci
 /// far vedere anche i widget e cose del genere, deve essere uno showcase piuttosto completo
 muoversi nella home, pannello notifiche, apertura app, pressione continua su app per ulteriori funzioni ecc.
+
+Trasfroma in un breve quiz il dirti cosa fanno i 3 pulsanti sui telefoni android (back, home, app aperte) e come si chiama il gesto di fare swipe
+
+Dai definizione di 
+- swipe
+- home
+- app aperte
+
+Pannello delle notifiche: oltre alle notifiche ci sono pulsanti che fanno "attiva/disattiva": in base al tempo vedi se approfondire cosa fanno i pulsanti più importanti
+
+
+Arriva ad avere un telefono che sia connesso ad internet, iscriviti al playstore e scarica un'app
+
