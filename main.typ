@@ -1,5 +1,10 @@
-#import "template/main.typ": *
+// #import "template/main.typ": *
 
-#show: style.with()
+// #show: style.with()
 
-#include "lezione_1/sections/incontri.typ"
+// #import "template-alfianellux/alfianellux.typ" : *
+
+// #show: alfianellux.with()
+
+#include "lezione_2/pt1.typ"
+// #include "lezione_1/sections/incontri.typ"

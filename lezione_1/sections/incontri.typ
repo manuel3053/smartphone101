@@ -1,5 +1,59 @@
 #import "@preview/cetz:0.3.2"
+#import "@preview/polylux:0.4.0": *
 
+#let colors = (
+    primary: rgb("#FFEB3B"),
+    light-primary: rgb("#FFF9C4"),
+    dark-primary: rgb("#FBC02D"),
+    primary-text: rgb("#212121"),
+    secondary-text: rgb("#757575"),
+    divider: rgb("#BDBDBD"),
+    accent: rgb("#FF9800")
+  )
+
+
+#slide[
+  = Palette
+  #grid(
+    columns: 4,
+    rows: 2,
+    [#rect(fill: colors.primary)],
+    [#rect(fill: colors.light-primary)],
+    [#rect(fill: colors.dark-primary)],
+    [#rect(fill: colors.divider)],
+    [#rect(fill: colors.secondary-text)],
+    [#rect(fill: colors.primary-text)],
+    [#rect(fill: colors.accent)],
+  )
+]
+
+
+#let sections-band = toolbox.all-sections( (sections, current) => {
+  set text(fill: white, size: .8em)
+  sections
+    .map(s => if s == current { strong(s) } else { s })
+    .join([ • ])
+})
+
+// #slide[
+// #toolbox.side-by-side(
+//   gutter: 3mm,
+//   columns: (1fr, 2fr, 2fr)
+// )[
+//   #rect(width: 100%, stroke: none, fill: aqua)
+//   #lorem(5)
+// ][
+//   #rect(width: 100%, stroke: none, fill: teal)
+//   #lorem(12)
+// ][
+//   #rect(width: 100%, stroke: none, fill: eastern)
+//   #lorem(20)
+// ]
+//   #my-progress
+// ]
+
+
+#slide[
 = Smartphone
 
 mi chiamo
@@ -13,6 +67,9 @@ Cosa interessa a noi: \
 *[]* Switch suoneria iphone \
 *[]* Lettore impronta digitale \
 *[]* Ricarica wireless \
+]
+
+
 
 == Ora troviamo questi componenti
 
