@@ -6,5 +6,5 @@
 
 // #show: alfianellux.with()
 
-#include "lezione_2/pt1.typ"
+#include "lezione_1/content.typ"
 // #include "lezione_1/sections/incontri.typ"

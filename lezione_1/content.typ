@@ -1,15 +1,162 @@
 #import "@preview/cetz:0.3.2"
-#import "@preview/polylux:0.4.0": *
+#import "@preview/touying:0.6.1": *
+#import themes.simple: *
 
 #let colors = (
-    primary: rgb("#FFEB3B"),
-    light-primary: rgb("#FFF9C4"),
-    dark-primary: rgb("#FBC02D"),
-    primary-text: rgb("#212121"),
-    secondary-text: rgb("#757575"),
-    divider: rgb("#BDBDBD"),
-    accent: rgb("#FF9800")
-  )
+  primary: rgb("#FFEB3B"),
+  light-primary: rgb("#FFF9C4"),
+  dark-primary: rgb("#FBC02D"),
+  primary-text: rgb("#212121"),
+  secondary-text: rgb("#757575"),
+  divider: rgb("#BDBDBD"),
+  accent: rgb("#FF9800")
+)
+
+#show: simple-theme.with(
+  aspect-ratio: "16-9",
+  footer-right: [],
+  header: [
+    #box(
+      height: 70%,
+      outset: (6%),
+      radius: 30%,
+      fill: colors.primary,
+      [
+        #set align(horizon)
+        #set text(weight: "black", size: 30pt, fill: white) 
+        #context(utils.display-current-heading()) 
+        #h(1fr)
+        #context(utils.slide-counter.display()) / 
+        #context(utils.last-slide-number)
+      ]
+    )
+  ]
+)
+
+// Slide separatrice tra un argomento e il successivo
+// #slide(background: colors.primary, foreground: white)[
+
+#let title(body) = {
+  title-slide[
+    #rect(
+      height: 130%,
+      width: 130%,
+      fill: colors.primary,
+    )[
+    #set text(weight: "black", size: 40pt, fill: white) 
+    = SMARTPHONE
+    ]
+  ]
+}
+
+#let definition(body, word: "Definizione", definition: "") = {
+  // Slide per le definizioni
+  slide[
+    #grid(
+      columns: (2fr, 1fr),
+      rows: (1fr, 4fr),
+      [
+        #set text(weight: "black", size: 60pt) 
+        #word
+      ],
+      grid.cell(rowspan: 2, rect(width: 100%, height: 100%, stroke: none)[
+        #set align(center)
+        #set text(fill: colors.accent)
+        #body
+      ]),
+      [
+        #box(
+          height: 100%,
+          width: 100%,
+          inset: 3%,
+          radius: 4%,
+          fill: colors.light-primary,
+          // fill: colors.light-primary,
+          [
+          #set align(center + horizon)
+          #set par(justify: true)
+          #set text(weight: "semibold", fill: colors.primary-text, size: 25pt)
+          #definition
+          ]
+        )
+      ],
+    )
+  ]
+}
+
+// #title[]
+// #definition(
+//   word: "Account", 
+//   definition: "L’insieme delle informazioni (nome, password, ecc.), depositate presso il provider, che identificano l’utente")[
+//   #set text(size: 146pt)
+//   󰀉 \ 
+// ]
+
+#definition(
+  word: "Email",
+  definition: "La posta elettronica è un sistema di trasmissione di messaggi in formato digitale attraverso internet.")[
+  #set text(size: 146pt)
+  󰇮 \ 
+]
+
+#definition(
+  word: "Provider",
+  definition: "Un provider è, ad esempio, un’azienda che fornisce l’accesso a dei servizi come Internet (Linkem, Iliad, ...), alla posta elettronica (Gmail, OutLook, ...), al cloud (Drive, ...) alla telefonia (Wind, Vodafone, ...)
+")[
+  #set text(size: 146pt)
+  󰊫 \ 
+]
+
+// Slide per il quiz
+#let quiz(body, found: array) = {
+  slide[
+    #grid(
+      columns: (2fr, 1fr),
+      rows: 1fr,
+      rect(
+        width: 100%,
+        height: 100%,
+        stroke: none,
+        body
+      ),
+      box(
+        height: 95%,
+        width: 95%,
+        fill: colors.light-primary,
+        outset: (6%),
+        radius: 4%,
+        [
+          #set align(horizon)
+          #{
+            let items = (
+              "Porta mini jack",
+              "Porte ricarica",
+              "Sportello sim e sd",
+              "Fotocamere",
+              "Tasti volume",
+              "Tasto accensione",
+              "Switch suoneria",
+              "Lettore impronte",
+              "Ricarica wireless",
+            )
+            for (index, item) in items.enumerate() {
+              if found.contains(index) {
+                set text(fill: colors.accent, weight: "black")
+                [- #item]
+              }
+              else {
+                [- #item]
+              }
+            }
+          }
+        ]
+      )
+    )
+  ]
+}
+
+#quiz(found: (1, 4, 7, 0))[
+]
 
 
 #slide[
@@ -27,13 +174,6 @@
   )
 ]
 
-
-#let sections-band = toolbox.all-sections( (sections, current) => {
-  set text(fill: white, size: .8em)
-  sections
-    .map(s => if s == current { strong(s) } else { s })
-    .join([ • ])
-})
 
 // #slide[
 // #toolbox.side-by-side(
@@ -77,8 +217,8 @@ Cosa interessa a noi: \
   columns: 2,
   align: (center, center),
   table.header([Fotocamera anteriore],[Fotocamera posteriore]),
-  image("../img/cmf_front.png", width: 50%),
-  image("../img/cmf_back.png", width: 50%),
+  image("img/cmf_front.png", width: 50%),
+  image("img/cmf_back.png", width: 50%),
 )
 
 *[]* Porta mini jack \
@@ -95,8 +235,8 @@ Cosa interessa a noi: \
   columns: 2,
   align: (center, center),
   table.header([?],[?]),
-  image("../img/cmf_left.png", width: 38%),
-  image("../img/cmf_right.png", width: 38%),
+  image("img/cmf_left.png", width: 38%),
+  image("img/cmf_right.png", width: 38%),
 )
 
 
@@ -104,8 +244,8 @@ Cosa interessa a noi: \
   columns: 2,
   align: (center, center),
   table.header([Tasti volume],[Tasto accensione]),
-  image("../img/cmf_left.png", width: 38%),
-  image("../img/cmf_right.png", width: 38%),
+  image("img/cmf_left.png", width: 38%),
+  image("img/cmf_right.png", width: 38%),
 )
 
 *[]* Porta mini jack \
@@ -122,15 +262,15 @@ Cosa interessa a noi: \
   columns: 2,
   align: (center, center),
   table.header(table.cell(colspan: 2)[Lettore impronta digitale]),
-  image("../img/cmf_front.png", width: 50%),
-  image("../img/cmf_back.png", width: 50%),
+  image("img/cmf_front.png", width: 50%),
+  image("img/cmf_back.png", width: 50%),
 )
 
 #table(
   columns: 1,
   align: (center),
   table.header([Lettore impronta digitale]),
-  image("../img/fingerprint.jpg", width: 75%),
+  image("img/fingerprint.jpg", width: 75%),
 )
 
 *[]* Porta mini jack \
@@ -147,15 +287,15 @@ Cosa interessa a noi: \
   columns: 2,
   align: (center, center),
   table.header(table.cell(colspan: 2)[Ricarica wireless]),
-  image("../img/cmf_front.png", width: 50%),
-  image("../img/cmf_back.png", width: 50%),
+  image("img/cmf_front.png", width: 50%),
+  image("img/cmf_back.png", width: 50%),
 )
 
 #table(
   columns: 1,
   align: (center),
   table.header([Ricarica wireless]),
-  image("../img/wireless.jpg", width: 75%),
+  image("img/wireless.jpg", width: 75%),
 )
 
 *[]* Porta mini jack \
@@ -172,7 +312,7 @@ Cosa interessa a noi: \
   columns: 1,
   align: (center),
   table.header([Switch suoneria]),
-  image("../img/iphone_switch.jpg", width: 100%),
+  image("img/iphone_switch.jpg", width: 100%),
 )
 
 *[]* Porta mini jack \
@@ -189,7 +329,7 @@ Cosa interessa a noi: \
   columns: 1,
   align: (center),
   table.header([Porta mini jack]),
-  image("../img/jack.jpg", width: 100%),
+  image("img/jack.jpg", width: 100%),
 )
 
 *[X]* Porta mini jack \
@@ -206,7 +346,7 @@ Cosa interessa a noi: \
   columns: 1,
   align: (center),
   table.header([Porte ricarica]),
-  image("../img/usbs.jpeg", width: 70%),
+  image("img/usbs.jpeg", width: 70%),
 )
 
 
@@ -225,7 +365,7 @@ metti immagine della chiavettina per aprirli
   columns: 1,
   align: (center),
   table.header([Sportello sim e sd]),
-  image("../img/sd_sim.png", width: 90%),
+  image("img/sd_sim.png", width: 90%),
 )
 
 == *Finalmente abbiamo finito* \
@@ -301,7 +441,9 @@ L'importante è ricordarsi che:
 Ora che sappiamo degli elementi fondamentali, vediamo di comprarci un telefono
 
 = Quale scegliere?
+PARLARE DI NOTHING E ONEPLUS
 // TODO: immagine con da un lato Toyota con [€ - €€€] e dall'altro Audi con [€€€ - €€€]
+
 Partiamo con una metafora:
 - Toyota produce dalle auto economiche ad auto costose
 - Audi produce solo auto costose
