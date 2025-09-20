@@ -15,28 +15,43 @@
 #show: simple-theme.with(
   aspect-ratio: "16-9",
   footer-right: [],
-  header: [
-    #box(
-      height: 70%,
-      outset: (6%),
-      radius: 30%,
-      fill: colors.primary,
-      [
-        #set align(horizon)
-        #set text(weight: "black", size: 30pt, fill: white) 
-        #context(utils.display-current-heading()) 
-        #h(1fr)
-        #context(utils.slide-counter.display()) / 
-        #context(utils.last-slide-number)
-      ]
-    )
-  ]
+  header: box(
+    height: 87%,
+    outset: (6%),
+    radius: 30%,
+    fill: colors.primary,
+    [
+      #set align(center + horizon)
+      #set text(weight: "black", size: 30pt, fill: white) 
+      #context(utils.display-current-heading()) 
+      #h(1fr)
+      #context(utils.slide-counter.display()) / 
+      #context(utils.last-slide-number)
+    ]
+  )
 )
+
+#slide[
+  = Palette
+  #grid(
+    columns: 4,
+    rows: 2,
+    [#rect(fill: colors.primary)],
+    [#rect(fill: colors.light-primary)],
+    [#rect(fill: colors.dark-primary)],
+    [#rect(fill: colors.divider)],
+    [#rect(fill: colors.secondary-text)],
+    [#rect(fill: colors.primary-text)],
+    [#rect(fill: colors.accent)],
+  )
+]
+
+
 
 // Slide separatrice tra un argomento e il successivo
 // #slide(background: colors.primary, foreground: white)[
 
-#let title(body) = {
+#let title(title: "") = {
   title-slide[
     #rect(
       height: 130%,
@@ -44,7 +59,7 @@
       fill: colors.primary,
     )[
     #set text(weight: "black", size: 40pt, fill: white) 
-    = SMARTPHONE
+    = #title
     ]
   ]
 }
@@ -68,7 +83,7 @@
         #box(
           height: 100%,
           width: 100%,
-          inset: 3%,
+          inset: 8%,
           radius: 4%,
           fill: colors.light-primary,
           // fill: colors.light-primary,
@@ -84,28 +99,7 @@
   ]
 }
 
-// #title[]
-// #definition(
-//   word: "Account", 
-//   definition: "L’insieme delle informazioni (nome, password, ecc.), depositate presso il provider, che identificano l’utente")[
-//   #set text(size: 146pt)
-//   󰀉 \ 
-// ]
-
-#definition(
-  word: "Email",
-  definition: "La posta elettronica è un sistema di trasmissione di messaggi in formato digitale attraverso internet.")[
-  #set text(size: 146pt)
-  󰇮 \ 
-]
-
-#definition(
-  word: "Provider",
-  definition: "Un provider è, ad esempio, un’azienda che fornisce l’accesso a dei servizi come Internet (Linkem, Iliad, ...), alla posta elettronica (Gmail, OutLook, ...), al cloud (Drive, ...) alla telefonia (Wind, Vodafone, ...)
-")[
-  #set text(size: 146pt)
-  󰊫 \ 
-]
+#title(title: "COME È FATTO")
 
 // Slide per il quiz
 #let quiz(body, found: array) = {
@@ -129,15 +123,14 @@
           #set align(horizon)
           #{
             let items = (
-              "Porta mini jack",
-              "Porte ricarica",
-              "Sportello sim e sd",
               "Fotocamere",
               "Tasti volume",
               "Tasto accensione",
-              "Switch suoneria",
               "Lettore impronte",
               "Ricarica wireless",
+              "Porte d'ingresso",
+              "Sportello sim e sd",
+              "Switch suoneria",
             )
             for (index, item) in items.enumerate() {
               if found.contains(index) {
@@ -155,243 +148,112 @@
   ]
 }
 
-#quiz(found: (1, 4, 7, 0))[
-]
+#let quiz-smarphone(found: array) = {
+  quiz(found: found)[
+    #set align(horizon)
+    #rect(
+      stroke: none,
+      width: 97%,
+      grid(
+        column-gutter: 0.3em,
+        columns: (2fr, 1fr, 2fr, 1fr),
+        image("img/cmf_front.png"),
+        image("img/cmf_left.png"),
+        image("img/cmf_back.png"),
+        image("img/cmf_right.png"),
+      )
+    )
+  ]
+}
 
+#quiz-smarphone(found: ())
+#quiz-smarphone(found: (0,))
+#quiz-smarphone(found: (0,1))
+#quiz-smarphone(found: (0,1,2))
 
 #slide[
-  = Palette
-  #grid(
-    columns: 4,
-    rows: 2,
-    [#rect(fill: colors.primary)],
-    [#rect(fill: colors.light-primary)],
-    [#rect(fill: colors.dark-primary)],
-    [#rect(fill: colors.divider)],
-    [#rect(fill: colors.secondary-text)],
-    [#rect(fill: colors.primary-text)],
-    [#rect(fill: colors.accent)],
+  #set align(center + horizon)
+  #box(
+    // stroke: (5pt + black),
+    radius: 10%,
+    height: 89%,
+    clip: true,
+    image("img/fingerprint.jpg")
   )
 ]
 
-
-// #slide[
-// #toolbox.side-by-side(
-//   gutter: 3mm,
-//   columns: (1fr, 2fr, 2fr)
-// )[
-//   #rect(width: 100%, stroke: none, fill: aqua)
-//   #lorem(5)
-// ][
-//   #rect(width: 100%, stroke: none, fill: teal)
-//   #lorem(12)
-// ][
-//   #rect(width: 100%, stroke: none, fill: eastern)
-//   #lorem(20)
-// ]
-//   #my-progress
-// ]
-
+#quiz-smarphone(found: (0,1,2,3))
 
 #slide[
-= Smartphone
-
-mi chiamo
-Cosa interessa a noi: \
-*[]* Porta mini jack \
-*[]* Porte ricarica \
-*[]* Sportellino sim e sd  \
-*[]* Fotocamere \
-*[]* Tasti volume \
-*[]* Tasto accensione \
-*[]* Switch suoneria iphone \
-*[]* Lettore impronta digitale \
-*[]* Ricarica wireless \
+  #set align(center + horizon)
+  #box(
+    height: 89%,
+    clip: true,
+    image("img/wireless.jpg")
+  )
 ]
 
+#quiz(found: (0,1,2,3,4))[
+  #set align(horizon)
+  #box(
+    width: 95%,
+    image("img/ports.jpg")
+  )
+]
 
+#quiz(found: (0,1,2,3,4,5))[
+  #set align(horizon)
+  #box(
+    clip: true,
+    height: 81%,
+    radius: 10%,
+    image("img/sd_sim.jpg", width: 93%)
+  )
+]
 
-== Ora troviamo questi componenti
+#quiz(found: (0,1,2,3,4,5,6))[
+  #set align(horizon)
+  #rotate(
+    -0.7rad,
+    box(
+      clip: true,
+      image("img/iphone_switch.jpg", width: 100%)
+    )
+  )
+]
 
-#table(
-  columns: 2,
-  align: (center, center),
-  table.header([Fotocamera anteriore],[Fotocamera posteriore]),
-  image("img/cmf_front.png", width: 50%),
-  image("img/cmf_back.png", width: 50%),
-)
+#quiz(found: (0,1,2,3,4,5,6,7))[
+  #set align(center)
+  #set text(size: 350pt, fill: colors.accent)
+  󱁖
+]
 
-*[]* Porta mini jack \
-*[]* Porte ricarica \
-*[]* Sportellino sim e sd  \
-*[X]* Fotocamere \
-*[]* Tasti volume \
-*[]* Tasto accensione \
-*[]* Switch suoneria iphone \
-*[]* Lettore impronta digitale \
-*[]* Ricarica wireless \
+#title(title: "UN PO' DI TEORIA")
 
-#table(
-  columns: 2,
-  align: (center, center),
-  table.header([?],[?]),
-  image("img/cmf_left.png", width: 38%),
-  image("img/cmf_right.png", width: 38%),
-)
+#definition(
+  word: "Account", 
+  definition: "L’insieme delle informazioni (email, password, ecc.), depositate presso il provider, che identificano l’utente",)[
+  #set text(size: 146pt)
+  󰀉 \ 
+]
 
+#definition(
+  word: "Provider",
+  definition: "Un provider è, ad esempio, un’azienda che fornisce l’accesso a dei servizi come Internet (Linkem, Iliad, ...), alla posta elettronica (Gmail, OutLook, ...), al cloud (Drive, ...) alla telefonia (Wind, Vodafone, ...)
+")[
+  #set text(size: 146pt)
+  󰊫 \ 
+]
 
-#table(
-  columns: 2,
-  align: (center, center),
-  table.header([Tasti volume],[Tasto accensione]),
-  image("img/cmf_left.png", width: 38%),
-  image("img/cmf_right.png", width: 38%),
-)
-
-*[]* Porta mini jack \
-*[]* Porte ricarica \
-*[]* Sportellino sim e sd  \
-*[X]* Fotocamere \
-*[X]* Tasti volume \
-*[X]* Tasto accensione \
-*[]* Switch suoneria iphone \
-*[]* Lettore impronta digitale \
-*[]* Ricarica wireless \
-
-#table(
-  columns: 2,
-  align: (center, center),
-  table.header(table.cell(colspan: 2)[Lettore impronta digitale]),
-  image("img/cmf_front.png", width: 50%),
-  image("img/cmf_back.png", width: 50%),
-)
-
-#table(
-  columns: 1,
-  align: (center),
-  table.header([Lettore impronta digitale]),
-  image("img/fingerprint.jpg", width: 75%),
-)
-
-*[]* Porta mini jack \
-*[]* Porte ricarica \
-*[]* Sportellino sim e sd  \
-*[X]* Fotocamere \
-*[X]* Tasti volume \
-*[X]* Tasto accensione \
-*[]* Switch suoneria iphone \
-*[X]* Lettore impronta digitale \
-*[]* Ricarica wireless \
-
-#table(
-  columns: 2,
-  align: (center, center),
-  table.header(table.cell(colspan: 2)[Ricarica wireless]),
-  image("img/cmf_front.png", width: 50%),
-  image("img/cmf_back.png", width: 50%),
-)
-
-#table(
-  columns: 1,
-  align: (center),
-  table.header([Ricarica wireless]),
-  image("img/wireless.jpg", width: 75%),
-)
-
-*[]* Porta mini jack \
-*[]* Porte ricarica \
-*[]* Sportellino sim e sd  \
-*[X]* Fotocamere \
-*[X]* Tasti volume \
-*[X]* Tasto accensione \
-*[]* Switch suoneria iphone \
-*[X]* Lettore impronta digitale \
-*[X]* Ricarica wireless \
-
-#table(
-  columns: 1,
-  align: (center),
-  table.header([Switch suoneria]),
-  image("img/iphone_switch.jpg", width: 100%),
-)
-
-*[]* Porta mini jack \
-*[]* Porte ricarica \
-*[]* Sportellino sim e sd  \
-*[X]* Fotocamere \
-*[X]* Tasti volume \
-*[X]* Tasto accensione \
-*[X]* Switch suoneria iphone \
-*[X]* Lettore impronta digitale \
-*[X]* Ricarica wireless \
-
-#table(
-  columns: 1,
-  align: (center),
-  table.header([Porta mini jack]),
-  image("img/jack.jpg", width: 100%),
-)
-
-*[X]* Porta mini jack \
-*[]* Porte ricarica \
-*[]* Sportellino sim e sd  \
-*[X]* Fotocamere \
-*[X]* Tasti volume \
-*[X]* Tasto accensione \
-*[X]* Switch suoneria iphone \
-*[X]* Lettore impronta digitale \
-*[X]* Ricarica wireless \
-
-#table(
-  columns: 1,
-  align: (center),
-  table.header([Porte ricarica]),
-  image("img/usbs.jpeg", width: 70%),
-)
-
-
-*[X]* Porta mini jack \
-*[X]* Porte ricarica \
-*[]* Sportellino sim e sd  \
-*[X]* Fotocamere \
-*[X]* Tasti volume \
-*[X]* Tasto accensione \
-*[X]* Switch suoneria iphone \
-*[X]* Lettore impronta digitale \
-*[X]* Ricarica wireless \
-
-metti immagine della chiavettina per aprirli
-#table(
-  columns: 1,
-  align: (center),
-  table.header([Sportello sim e sd]),
-  image("img/sd_sim.png", width: 90%),
-)
-
-== *Finalmente abbiamo finito* \
-*[X]* Porta mini jack \
-*[X]* Porte ricarica \
-*[X]* Sportellino sim e sd  \
-*[X]* Fotocamere \
-*[X]* Tasti volume \
-*[X]* Tasto accensione \
-*[X]* Switch suoneria iphone \
-*[X]* Lettore impronta digitale \
-*[X]* Ricarica wireless \
-
-
-= Email e account
+#definition(
+  word: "Email",
+  definition: "La posta elettronica è un sistema di trasmissione di messaggi in formato digitale attraverso internet.")[
+  #set text(size: 146pt)
+  󰇮 \ 
+]
 
 // TODO: metti immagine con con "circa uguale" in mezzo, dove da un lato ci sta carta identità + stato e dall'altro account + app
 
-// Questa definizione da mettere nel riquadro delle definizioni
-Account: l’insieme delle informazioni (nome, password, ecc.), depositate presso il provider, che identificano l’utente
-Email: La posta elettronica è un sistema di trasmissione di messaggi in formato digitale attraverso internet. 
-Consiste nell’invio di email, ovvero messaggi, da un mittente a uno o più destinatari. 
-Provider: Un provider è, ad esempio, un’azienda che fornisce l’accesso a dei servizi come Internet (Linkem, Iliad, ...), 
-alla posta elettronica (Gmail, OutLook, ...), al cloud (Drive, ...) alla telefonia (Wind, Vodafone, ...)
-
-== Perché serve l'account
 // TODO: Immagine di una pizza per via dell'esemprio
 
 l'account è il modo con cui siti e app ci riconoscono, fornendoci e conservando i dati che riguardano solo noi:
