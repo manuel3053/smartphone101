@@ -1,0 +1,115 @@
+#import "../template-alfianellux/alfianellux.typ" : *
+#import "../template-alfianellux/colors.typ" : colors
+#import "../template-alfianellux/slides.typ" : *
+
+#title(title: "SICUREZZA")
+
+#horizontal-slide(title: "Smartphone")[
+  Va protetto tramite una o più delle seguenti misure di sicurezza:
+  - PIN
+  - Segno
+  - Password
+  - Impronta digitale
+  - Riconoscimento facciale
+]
+
+#horizontal-slide(title: "Account")[
+  Applichiamo le seguenti precauzioni per rendere il nostro account più sicuro:
+  - 2FA
+  - Mail di recupero
+  - Telefono di recupero
+]
+
+#definition(
+  word: "OTP", 
+  definition: "Codice numerico monouso usato per verificare l'identità in una transazione o login (es. ricevuto via SMS o app autenticatore)."
+)[]
+
+#definition(
+  word: "2FA", 
+  definition: "Autenticazione a due fattori; metodo di sicurezza che richiede due prove d'identità indipendenti (es. password + OTP, oppure password + dispositivo)."
+)[]
+
+#horizontal-slide(title: "Password")[
+  #set align(horizon + center)
+  #grid(
+    columns: (1fr, 1fr),
+    column-gutter: 16pt,
+    row-gutter: 16pt,
+    [Salvare password nei browser],
+    [Usare un gestore di password],
+    image("img/close.svg", width: 60%),
+    image("img/accept.svg", width: 53%),
+  )
+]
+
+#definition(
+  word: "Gestore password", 
+  definition: "Applicazione che memorizza e genera password sicure, sincronizzandole su dispositivi e compilando i form di login automaticamente."
+)[]
+
+#horizontal-slide(title: "Password: compromesso")[
+  #set align(horizon + center)
+  #grid(
+    columns: (1fr, 1fr),
+    column-gutter: 16pt,
+    row-gutter: 16pt,
+    [Salvare su carta (al sicuro)],
+    grid.cell(rowspan: 2, box(
+      clip: true,
+      // height: 81%,
+      radius: 10%,
+      image("img/writer.jpg", width: 50%)
+    )),
+  
+    rotate(45deg, image("img/forbid.svg", width: 60%)),
+  )
+]
+
+#horizontal-slide(title: [La sicurezza vien prestando attenzione])[
+  #set align(horizon + center)
+  #box(
+      clip: true,
+      height: 89%,
+      radius: 10%,
+      image("img/incrocio.jpg", width: 100%)
+    )
+]
+
+#title(title: "I X COMANDAMENTI")
+
+#commandment(number: "I")[Non premerai a caso lo schermo]
+
+#commandment(number: "II")[Non cederai al panico di fronte a schermate complesse]
+// trova schermate vagamente complesse da far analizzare al volo
+
+#commandment(number: "III")[Cercherai la soluzione al tuo problema online, prima di arrenderti]
+
+#commandment(number: "IV")[Non darai i tuoi dati con leggerezza]
+// mostrare messaggi scam in cui viene chiesto di inserire dati
+
+#commandment(number: "V")[Non ti spaventerai di fronte a messaggi e email sospetti]
+#set align(horizon + center)
+#image("img/sms.jpeg", width: 70%)
+// mostrare immagini di esempio
+
+#commandment(number: "VI")[Verificherai sempre le fonti]
+// numeri telefono, indirizzi email, mittente messaggio, ecc...
+
+#commandment(number: "VII")[Non darai la colpa alla tecnologia quando non sai fare qualcosa]
+// fornire esempi tipici dove uno si arrabbia
+
+#commandment(number: "VIII")[Non aprirai pubblicità in siti e app]
+#definition(
+  word: "Deepfake", 
+  definition: "Contenuto multimediale (video, audio, immagine) falsificato tramite intelligenza artificiale per far sembrare reali persone o eventi non autentici."
+)[]
+
+#commandment(number: "IX")[Rifiuterai tutti i cookies possibili]
+
+#definition(
+  word: "Newsletter", 
+  definition: "Comunicazione periodica inviata via email a iscritti contenente aggiornamenti, notizie o promozioni."
+)[]
+
+#commandment(number: "X")[Ti rivolgerai alle autorità se sarai in guai seri]

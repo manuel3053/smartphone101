@@ -39,29 +39,31 @@ Fai tour delle applicazioni più comuni (elenco non definitivo):
 - Impostazioni
 - Tour del pannello di controllo
 
-## Incontro 3
-
-Se l'utenza sa già usare abbastanza bene il telefono non fare questa parte
-Come installare un app: accedere allo store con il proprio account, ricerca dell'app e installazione
+## Incontro 3: mettersi al sicuro
 
 Sicurezza account
-
 - Processo creazione account google
-- Misure di Sicurezza da adottare dentro l'account (2FA, mail di recupero, ecc...)
+- Lista metodi autenticazione con definzione
+    - otp
+    - 2fa
+- Misure di Sicurezza da adottare dentro l'account: 
+    - 2FA, 
+    - mail di recupero
+    - telefono di recupero
+- Inserimento impronta digitale: dato che per inserirla i passaggi sono potenzialmente diversi, chiedi a qualcuno dei partecipanti di dire il modello del telefono e fai vedere che cercando su internet si trova una guida su come fare e faglielo trovare, così capiscono che se si cerca si trova
+- Inserimento face id: dato che per inserirla i passaggi sono potenzialmente diversi, chiedi a qualcuno dei partecipanti di dire il modello del telefono e fai vedere che cercando su internet si trova una guida su come fare e faglielo trovare, così capiscono che se si cerca si trova
 
-Sicurezza password
+Vediamo come mettere al sicuro quello che ci tiene al sicuro:
+- salvare le password con browser non è sicuro e tenerle a memoria significa farle tutte simili
+- Rifiutare salvataggio password su browser perché insicuro
+- sappiate che esistono dei gestori di password come bitwarden: non lo vedremo perché troppo complicato per il livello attuale
 
-- password manager (BitWarden)
+La sicurezza vien prestando attenzione:
+- i semafori sono una misura di sicurezza per gli incroci ma se non si presta attenzione e non si rispetto, la sicurezza svanisce
 
-  - tutorial pc (https://www.youtube.com/watch?v=OkYKb0Sx-XA)
-
-- scrivere su carta (breve discussion sul perché convenga usare un password manager)
-
-Sicurezza email, messaggi e chiamate:
-
-- Come riconoscere quali possano essere le fregature (voce generata da IA, ecc...)
-
-Sicurezza sul browser e app:
+Grossa minaccia: AI; tutti i rischi che affronteremo sono amplificati dall'uso di AI:
+- deepfake
+- volti famosi o conosciuti usati in pubblicità senza il consenso
 
 - Non cliccare le pubblicità nei siti
 - Non cliccare le pubblicità nelle app
@@ -69,10 +71,8 @@ Sicurezza sul browser e app:
 - Fare attenzione a che sito ci si stia iscrivendo
 - Cosa fare se si cliccano le pubblicità
 - Cosa fare se si va troppo oltre nella fregatura
-- AdBlock
 
-Extra:
-
+Per essere attenti bisogna ridurre i disturbi:
 - Disattivare le notifiche di app indesiderate
 - Disiscriversi dalle newsletter
 - Bloccare i numeri di telefono

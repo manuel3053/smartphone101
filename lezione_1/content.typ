@@ -1,103 +1,6 @@
-#import "@preview/cetz:0.3.2"
-#import "@preview/touying:0.6.1": *
-#import themes.simple: *
-
-#let colors = (
-  primary: rgb("#FFEB3B"),
-  light-primary: rgb("#FFF9C4"),
-  dark-primary: rgb("#FBC02D"),
-  primary-text: rgb("#212121"),
-  secondary-text: rgb("#757575"),
-  divider: rgb("#BDBDBD"),
-  accent: rgb("#FF9800")
-)
-
-#show: simple-theme.with(
-  aspect-ratio: "16-9",
-  footer-right: [],
-  header: box(
-    height: 87%,
-    outset: (6%),
-    radius: 30%,
-    fill: colors.primary,
-    [
-      #set align(center + horizon)
-      #set text(weight: "black", size: 30pt, fill: white) 
-      #context(utils.display-current-heading()) 
-      #h(1fr)
-      #context(utils.slide-counter.display()) / 
-      #context(utils.last-slide-number)
-    ]
-  )
-)
-
-#slide[
-  = Palette
-  #grid(
-    columns: 4,
-    rows: 2,
-    [#rect(fill: colors.primary)],
-    [#rect(fill: colors.light-primary)],
-    [#rect(fill: colors.dark-primary)],
-    [#rect(fill: colors.divider)],
-    [#rect(fill: colors.secondary-text)],
-    [#rect(fill: colors.primary-text)],
-    [#rect(fill: colors.accent)],
-  )
-]
-
-
-
-// Slide separatrice tra un argomento e il successivo
-// #slide(background: colors.primary, foreground: white)[
-
-#let title(title: "") = {
-  title-slide[
-    #rect(
-      height: 130%,
-      width: 130%,
-      fill: colors.primary,
-    )[
-    #set text(weight: "black", size: 40pt, fill: white) 
-    = #title
-    ]
-  ]
-}
-
-#let definition(body, word: "Definizione", definition: "") = {
-  // Slide per le definizioni
-  slide[
-    #grid(
-      columns: (2fr, 1fr),
-      rows: (1fr, 4fr),
-      [
-        #set text(weight: "black", size: 60pt) 
-        #word
-      ],
-      grid.cell(rowspan: 2, rect(width: 100%, height: 100%, stroke: none)[
-        #set align(center)
-        #set text(fill: colors.accent)
-        #body
-      ]),
-      [
-        #box(
-          height: 100%,
-          width: 100%,
-          inset: 8%,
-          radius: 4%,
-          fill: colors.light-primary,
-          // fill: colors.light-primary,
-          [
-          #set align(center + horizon)
-          #set par(justify: true)
-          #set text(weight: "semibold", fill: colors.primary-text, size: 25pt)
-          #definition
-          ]
-        )
-      ],
-    )
-  ]
-}
+#import "../template-alfianellux/alfianellux.typ" : *
+#import "../template-alfianellux/colors.typ" : colors
+#import "../template-alfianellux/slides.typ" : *
 
 #title(title: "COME È FATTO")
 
@@ -299,6 +202,7 @@
     radius: 10%,
     height: 89%,
     clip: true,
+    // sostituire stati con club o cose del genere. Quindi l'account nei social sarebbe come l'invito nei club
       image("img/states.jpg", width: 116%)
     ),
   )
@@ -350,6 +254,7 @@
     grid(
       columns: (1fr, 1fr, 1fr),
       row-gutter: 1em,
+      // metti solo servizi di google
       text(size: 3em, fill: colors.accent, ""),
       text(size: 3em, fill: colors.accent, ""),
       text(size: 3em, fill: colors.accent, ""),
