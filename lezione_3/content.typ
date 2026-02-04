@@ -78,10 +78,12 @@
 
 #title(title: "I X COMANDAMENTI")
 
+#show image: set align(center + horizon)
 #commandment(number: "I")[Non premerai a caso lo schermo]
 
 #commandment(number: "II")[Non cederai al panico di fronte a schermate complesse]
-// trova schermate vagamente complesse da far analizzare al volo
+#image("img/screen1.jpeg", height: 89%)
+#image("img/screen2.jpeg", height: 99%)
 
 #commandment(number: "III")[Cercherai la soluzione al tuo problema online, prima di arrenderti]
 
@@ -89,8 +91,8 @@
 // mostrare messaggi scam in cui viene chiesto di inserire dati
 
 #commandment(number: "V")[Non ti spaventerai di fronte a messaggi e email sospetti]
-#set align(horizon + center)
 #image("img/sms.jpeg", width: 70%)
+#image("img/mail.jpeg", height: 100%)
 // mostrare immagini di esempio
 
 #commandment(number: "VI")[Verificherai sempre le fonti]
