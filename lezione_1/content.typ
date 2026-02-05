@@ -203,7 +203,7 @@
     height: 89%,
     clip: true,
     // sostituire stati con club o cose del genere. Quindi l'account nei social sarebbe come l'invito nei club
-      image("img/states.jpg", width: 116%)
+      image("img/sport.png", width: 116%)
     ),
   )
 ]
@@ -255,11 +255,11 @@
       columns: (1fr, 1fr, 1fr),
       row-gutter: 1em,
       // metti solo servizi di google
-      text(size: 3em, fill: colors.accent, ""),
-      text(size: 3em, fill: colors.accent, ""),
-      text(size: 3em, fill: colors.accent, ""),
+      text(size: 3em, fill: colors.accent, "󰊶"),
+      text(size: 3em, fill: colors.accent, "󰗵"),
+      text(size: 3em, fill: colors.accent, "󰟍"),
       text(size: 3em, fill: colors.accent, "󰗃"),
-      text(size: 3em, fill: colors.accent, ""),
+      text(size: 3em, fill: colors.accent, ""),
       text(size: 3em, fill: colors.accent, "󰊫"),
     )
   )
@@ -334,12 +334,12 @@
     import cetz.draw: *
     set-style(stroke: (paint: red, thickness: 50pt), content: (frame: "rect", stroke: none, fill: yellow.transparentize(100%),))
     line((0,0),(2,0), stroke: (paint: red, thickness: 50pt), name: "less")
-    line((2,0),(16,0), stroke: (paint: green, thickness: 50pt), name: "right")
-    line((16,0),(24,0), stroke: (paint: red, thickness: 50pt), name: "more")
+    line((2,0),(14,0), stroke: (paint: green, thickness: 50pt), name: "right")
+    line((14,0),(24,0), stroke: (paint: red, thickness: 50pt), name: "more")
 
     content("less.start", [\ 0€], anchor: "north")
     content("right.start", [\ 150€], anchor: "north")
-    content("right.end", [\ 500€], anchor: "north")
+    content("right.end", [\ 400€], anchor: "north")
     content("more.end", [\ ...€], anchor: "north")
   })
 ]
@@ -368,6 +368,7 @@
 ]
 
 #slide[
+  #show link: set text(fill: colors.dark-primary, weight: 600)
   Ecco un elenco di siti per dispositivi usati:
   - #link("https://www.refurbed.it/c/iphone/")[Refurbed]
   - #link("https://www.rebuy.it/comprare/smartphone-e-cellulari")[Rebuy]
